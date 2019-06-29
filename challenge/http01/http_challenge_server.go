@@ -6,7 +6,7 @@ import (
 	"net/http"
 	"strings"
 
-	"github.com/go-acme/lego/log"
+	"github.com/vostronet/lego/log"
 )
 
 // ProviderServer implements ChallengeProvider for `http-01` challenge

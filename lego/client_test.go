@@ -6,8 +6,8 @@ import (
 	"crypto/rsa"
 	"testing"
 
-	"github.com/go-acme/lego/platform/tester"
-	"github.com/go-acme/lego/registration"
+	"github.com/vostronet/lego/platform/tester"
+	"github.com/vostronet/lego/registration"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 )

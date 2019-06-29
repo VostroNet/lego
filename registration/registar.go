@@ -4,9 +4,9 @@ import (
 	"errors"
 	"net/http"
 
-	"github.com/go-acme/lego/acme"
-	"github.com/go-acme/lego/acme/api"
-	"github.com/go-acme/lego/log"
+	"github.com/vostronet/lego/acme"
+	"github.com/vostronet/lego/acme/api"
+	"github.com/vostronet/lego/log"
 )
 
 // Resource represents all important information about a registration

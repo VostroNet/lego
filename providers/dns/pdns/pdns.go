@@ -10,9 +10,9 @@ import (
 	"net/url"
 	"time"
 
-	"github.com/go-acme/lego/challenge/dns01"
-	"github.com/go-acme/lego/log"
-	"github.com/go-acme/lego/platform/config/env"
+	"github.com/vostronet/lego/challenge/dns01"
+	"github.com/vostronet/lego/log"
+	"github.com/vostronet/lego/platform/config/env"
 )
 
 // Config is used to configure the creation of the DNSProvider

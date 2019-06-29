@@ -13,10 +13,10 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/go-acme/lego/certcrypto"
-	"github.com/go-acme/lego/lego"
-	"github.com/go-acme/lego/log"
-	"github.com/go-acme/lego/registration"
+	"github.com/vostronet/lego/certcrypto"
+	"github.com/vostronet/lego/lego"
+	"github.com/vostronet/lego/log"
+	"github.com/vostronet/lego/registration"
 	"github.com/urfave/cli"
 )
 

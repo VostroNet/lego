@@ -9,9 +9,9 @@ import (
 	"strings"
 	"time"
 
-	"github.com/go-acme/lego/challenge/dns01"
-	"github.com/go-acme/lego/platform/config/env"
-	"github.com/go-acme/lego/providers/dns/dnsmadeeasy/internal"
+	"github.com/vostronet/lego/challenge/dns01"
+	"github.com/vostronet/lego/platform/config/env"
+	"github.com/vostronet/lego/providers/dns/dnsmadeeasy/internal"
 )
 
 // Config is used to configure the creation of the DNSProvider

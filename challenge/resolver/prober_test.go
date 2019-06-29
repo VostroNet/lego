@@ -4,8 +4,8 @@ import (
 	"errors"
 	"testing"
 
-	"github.com/go-acme/lego/acme"
-	"github.com/go-acme/lego/challenge"
+	"github.com/vostronet/lego/acme"
+	"github.com/vostronet/lego/challenge"
 	"github.com/stretchr/testify/require"
 )
 

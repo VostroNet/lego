@@ -2,7 +2,7 @@
 
 Let's Encrypt client and ACME library written in Go.
 
-[![GoDoc](https://godoc.org/github.com/go-acme/lego?status.svg)](https://godoc.org/github.com/go-acme/lego/acme)
+[![GoDoc](https://godoc.org/github.com/vostronet/lego?status.svg)](https://godoc.org/github.com/vostronet/lego/acme)
 [![Build Status](https://travis-ci.com/go-acme/lego.svg?branch=master)](https://travis-ci.com/go-acme/lego)
 [![Docker Pulls](https://img.shields.io/docker/pulls/goacme/lego.svg)](https://hub.docker.com/r/goacme/lego/)
 
@@ -22,7 +22,7 @@ Let's Encrypt client and ACME library written in Go.
 - Certificate bundling
 - OCSP helper function
 
-lego introduced support for ACME v2 in [v1.0.0](https://github.com/go-acme/lego/releases/tag/v1.0.0). If you still need to utilize ACME v1, you can do so by using the [v0.5.0](https://github.com/go-acme/lego/releases/tag/v0.5.0) version.
+lego introduced support for ACME v2 in [v1.0.0](https://github.com/vostronet/lego/releases/tag/v1.0.0). If you still need to utilize ACME v1, you can do so by using the [v0.5.0](https://github.com/vostronet/lego/releases/tag/v0.5.0) version.
 
 ## Installation
 

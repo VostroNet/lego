@@ -9,10 +9,10 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/go-acme/lego/challenge/dns01"
-	"github.com/go-acme/lego/providers/dns/vscale/internal"
+	"github.com/vostronet/lego/challenge/dns01"
+	"github.com/vostronet/lego/providers/dns/vscale/internal"
 
-	"github.com/go-acme/lego/platform/config/env"
+	"github.com/vostronet/lego/platform/config/env"
 )
 
 const (

@@ -8,12 +8,13 @@ import (
 	"fmt"
 	"net/http"
 	"net/url"
+	"regexp"
 	"strings"
 	"time"
 
-	"github.com/go-acme/lego/challenge/dns01"
-	"github.com/go-acme/lego/log"
-	"github.com/go-acme/lego/platform/config/env"
+	"github.com/vostronet/lego/challenge/dns01"
+	"github.com/vostronet/lego/log"
+	"github.com/vostronet/lego/platform/config/env"
 	"golang.org/x/oauth2/clientcredentials"
 )
 
@@ -100,16 +101,27 @@ func getOathClient(config *Config) *http.Client {
 
 // Present creates a TXT record to fulfill the dns-01 challenge
 func (d *DNSProvider) Present(domain, token, keyAuth string) error {
+	log.Printf("domain %v", domain)
 	zone, err := d.getZones(domain)
 	if err != nil {
 		return fmt.Errorf("stackpath: %v", err)
 	}
+	log.Printf("zone %v", zone.Domain)
 
 	fqdn, value := dns01.GetRecord(domain, keyAuth)
-	parts := strings.Split(fqdn, ".")
+
+	ufqdn := dns01.UnFqdn(fqdn)
+
+	reg := "."
+	reg += strings.ReplaceAll(zone.Domain, ".", "\\.")
+	reg += "$"
+	fmt.Println(reg)
+	re := regexp.MustCompile(reg)
+	recordName := re.ReplaceAllString(ufqdn, "")
+	fmt.Println(recordName)
 
 	record := Record{
-		Name: parts[0],
+		Name: recordName,
 		Type: "TXT",
 		TTL:  d.config.TTL,
 		Data: value,

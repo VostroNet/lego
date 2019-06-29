@@ -15,7 +15,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/go-acme/lego/platform/wait"
+	"github.com/vostronet/lego/platform/wait"
 )
 
 const (

@@ -10,7 +10,7 @@ import (
 	"strings"
 	"text/tabwriter"
 
-	"github.com/go-acme/lego/log"
+	"github.com/vostronet/lego/log"
 )
 
 func allDNSCodes() string {

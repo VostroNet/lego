@@ -9,7 +9,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/go-acme/lego/platform/tester"
+	"github.com/vostronet/lego/platform/tester"
 	"github.com/stretchr/testify/require"
 )
 

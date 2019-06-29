@@ -9,8 +9,8 @@ import (
 	"sync"
 	"time"
 
-	"github.com/go-acme/lego/challenge/dns01"
-	"github.com/go-acme/lego/platform/config/env"
+	"github.com/vostronet/lego/challenge/dns01"
+	"github.com/vostronet/lego/platform/config/env"
 	"github.com/ovh/go-ovh/ovh"
 )
 

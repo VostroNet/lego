@@ -8,8 +8,8 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/go-acme/lego/challenge/dns01"
-	"github.com/go-acme/lego/log"
+	"github.com/vostronet/lego/challenge/dns01"
+	"github.com/vostronet/lego/log"
 )
 
 const defaultBaseURL = "https://dmapi.joker.com/request/"

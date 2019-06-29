@@ -10,8 +10,8 @@ import (
 	"time"
 
 	"github.com/dnsimple/dnsimple-go/dnsimple"
-	"github.com/go-acme/lego/challenge/dns01"
-	"github.com/go-acme/lego/platform/config/env"
+	"github.com/vostronet/lego/challenge/dns01"
+	"github.com/vostronet/lego/platform/config/env"
 	"golang.org/x/oauth2"
 )
 

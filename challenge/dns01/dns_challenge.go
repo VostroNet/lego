@@ -8,11 +8,11 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/go-acme/lego/acme"
-	"github.com/go-acme/lego/acme/api"
-	"github.com/go-acme/lego/challenge"
-	"github.com/go-acme/lego/log"
-	"github.com/go-acme/lego/platform/wait"
+	"github.com/vostronet/lego/acme"
+	"github.com/vostronet/lego/acme/api"
+	"github.com/vostronet/lego/challenge"
+	"github.com/vostronet/lego/log"
+	"github.com/vostronet/lego/platform/wait"
 	"github.com/miekg/dns"
 )
 

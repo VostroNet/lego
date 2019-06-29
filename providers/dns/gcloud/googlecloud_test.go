@@ -9,7 +9,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/go-acme/lego/platform/tester"
+	"github.com/vostronet/lego/platform/tester"
 	"github.com/stretchr/testify/require"
 	"golang.org/x/net/context"
 	"golang.org/x/oauth2/google"

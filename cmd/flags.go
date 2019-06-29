@@ -1,7 +1,7 @@
 package cmd
 
 import (
-	"github.com/go-acme/lego/lego"
+	"github.com/vostronet/lego/lego"
 	"github.com/urfave/cli"
 )
 

@@ -7,7 +7,7 @@ go:
 services:
   - memcached
 
-go_import_path: github.com/go-acme/lego
+go_import_path: github.com/vostronet/lego
 
 addons:
   hosts:

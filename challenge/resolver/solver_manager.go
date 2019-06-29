@@ -9,13 +9,13 @@ import (
 	"time"
 
 	"github.com/cenkalti/backoff"
-	"github.com/go-acme/lego/acme"
-	"github.com/go-acme/lego/acme/api"
-	"github.com/go-acme/lego/challenge"
-	"github.com/go-acme/lego/challenge/dns01"
-	"github.com/go-acme/lego/challenge/http01"
-	"github.com/go-acme/lego/challenge/tlsalpn01"
-	"github.com/go-acme/lego/log"
+	"github.com/vostronet/lego/acme"
+	"github.com/vostronet/lego/acme/api"
+	"github.com/vostronet/lego/challenge"
+	"github.com/vostronet/lego/challenge/dns01"
+	"github.com/vostronet/lego/challenge/http01"
+	"github.com/vostronet/lego/challenge/tlsalpn01"
+	"github.com/vostronet/lego/log"
 )
 
 type byType []acme.Challenge

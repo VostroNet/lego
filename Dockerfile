@@ -3,7 +3,7 @@ FROM golang:alpine3.9 as builder
 RUN apk --update upgrade \
     && apk --no-cache --no-progress add make git
 
-WORKDIR /go/src/github.com/go-acme/lego
+WORKDIR /go/src/github.com/vostronet/lego
 COPY . .
 RUN make build
 
@@ -12,5 +12,5 @@ RUN apk update \
     && apk add --no-cache ca-certificates tzdata \
     && update-ca-certificates
 
-COPY --from=builder /go/src/github.com/go-acme/lego/dist/lego /usr/bin/lego
+COPY --from=builder /go/src/github.com/vostronet/lego/dist/lego /usr/bin/lego
 ENTRYPOINT [ "/usr/bin/lego" ]

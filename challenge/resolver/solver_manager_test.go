@@ -9,9 +9,9 @@ import (
 	"sort"
 	"testing"
 
-	"github.com/go-acme/lego/acme"
-	"github.com/go-acme/lego/acme/api"
-	"github.com/go-acme/lego/platform/tester"
+	"github.com/vostronet/lego/acme"
+	"github.com/vostronet/lego/acme/api"
+	"github.com/vostronet/lego/platform/tester"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 	jose "gopkg.in/square/go-jose.v2"
