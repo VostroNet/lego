@@ -99,12 +99,6 @@ func getOathClient(config *Config) *http.Client {
 	return oathConfig.Client(context.Background())
 }
 
-func getSubDomainFromFqdn(fqdn string) string {
-	ufqdn := dns01.UnFqdn(fqdn)
-	strDomainRegex := fmt.Sprintf(".%s$", strings.ReplaceAll(zone.Domain, ".", "\\."))
-	domainRegex := regexp.MustCompile(strDomainRegex)
-	return domainRegex.ReplaceAllString(ufqdn, "")
-}
 
 // Present creates a TXT record to fulfill the dns-01 challenge
 func (d *DNSProvider) Present(domain, token, keyAuth string) error {
@@ -114,7 +108,7 @@ func (d *DNSProvider) Present(domain, token, keyAuth string) error {
 	}
 
 	fqdn, value := dns01.GetRecord(domain, keyAuth)
-	recordName := GetSubDomainFromFqdn(fqdn)
+	recordName := getSubDomainFromFqdn(fqdn)
 
 	record := Record{
 		Name: recordName,
@@ -135,7 +129,7 @@ func (d *DNSProvider) CleanUp(domain, token, keyAuth string) error {
 
 	fqdn, _ := dns01.GetRecord(domain, keyAuth)
 	
-	recordName := GetSubDomainFromFqdn(fqdn)
+	recordName := getSubDomainFromFqdn(fqdn)
 
 	records, err := d.getZoneRecords(recordName, zone)
 	if err != nil {
@@ -156,4 +150,12 @@ func (d *DNSProvider) CleanUp(domain, token, keyAuth string) error {
 // Adjusting here to cope with spikes in propagation times.
 func (d *DNSProvider) Timeout() (timeout, interval time.Duration) {
 	return d.config.PropagationTimeout, d.config.PollingInterval
+}
+
+
+func getSubDomainFromFqdn(fqdn string) string {
+	ufqdn := dns01.UnFqdn(fqdn)
+	strDomainRegex := fmt.Sprintf(".%s$", strings.ReplaceAll(zone.Domain, ".", "\\."))
+	domainRegex := regexp.MustCompile(strDomainRegex)
+	return domainRegex.ReplaceAllString(ufqdn, "")
 }
