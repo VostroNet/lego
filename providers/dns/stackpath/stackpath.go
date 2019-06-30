@@ -99,26 +99,22 @@ func getOathClient(config *Config) *http.Client {
 	return oathConfig.Client(context.Background())
 }
 
+func getSubDomainFromFqdn(fqdn string) string {
+	ufqdn := dns01.UnFqdn(fqdn)
+	strDomainRegex := fmt.Sprintf(".%s$", strings.ReplaceAll(zone.Domain, ".", "\\."))
+	domainRegex := regexp.MustCompile(strDomainRegex)
+	return domainRegex.ReplaceAllString(ufqdn, "")
+}
+
 // Present creates a TXT record to fulfill the dns-01 challenge
 func (d *DNSProvider) Present(domain, token, keyAuth string) error {
-	log.Printf("domain %v", domain)
 	zone, err := d.getZones(domain)
 	if err != nil {
 		return fmt.Errorf("stackpath: %v", err)
 	}
-	log.Printf("zone %v", zone.Domain)
 
 	fqdn, value := dns01.GetRecord(domain, keyAuth)
-
-	ufqdn := dns01.UnFqdn(fqdn)
-
-	reg := "."
-	reg += strings.ReplaceAll(zone.Domain, ".", "\\.")
-	reg += "$"
-	fmt.Println(reg)
-	re := regexp.MustCompile(reg)
-	recordName := re.ReplaceAllString(ufqdn, "")
-	fmt.Println(recordName)
+	recordName := GetSubDomainFromFqdn(fqdn)
 
 	record := Record{
 		Name: recordName,
@@ -138,9 +134,10 @@ func (d *DNSProvider) CleanUp(domain, token, keyAuth string) error {
 	}
 
 	fqdn, _ := dns01.GetRecord(domain, keyAuth)
-	parts := strings.Split(fqdn, ".")
+	
+	recordName := GetSubDomainFromFqdn(fqdn)
 
-	records, err := d.getZoneRecords(parts[0], zone)
+	records, err := d.getZoneRecords(recordName, zone)
 	if err != nil {
 		return err
 	}
