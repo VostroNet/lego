@@ -107,7 +107,7 @@ func (d *DNSProvider) Present(domain, token, keyAuth string) error {
 		return fmt.Errorf("stackpath: %v", err)
 	}
 
-	fqdn, value := dns01.GetRecord(domain, zone, keyAuth)
+	fqdn, value := dns01.GetRecord(domain, keyAuth)
 	recordName := getSubDomainFromFqdn(fqdn, zone.Domain)
 
 	record := Record{
