@@ -107,8 +107,8 @@ func (d *DNSProvider) Present(domain, token, keyAuth string) error {
 		return fmt.Errorf("stackpath: %v", err)
 	}
 
-	fqdn, value := dns01.GetRecord(domain, keyAuth)
-	recordName := getSubDomainFromFqdn(fqdn)
+	fqdn, value := dns01.GetRecord(domain, zone, keyAuth)
+	recordName := getSubDomainFromFqdn(fqdn, zone.Domain)
 
 	record := Record{
 		Name: recordName,
@@ -129,7 +129,7 @@ func (d *DNSProvider) CleanUp(domain, token, keyAuth string) error {
 
 	fqdn, _ := dns01.GetRecord(domain, keyAuth)
 	
-	recordName := getSubDomainFromFqdn(fqdn)
+	recordName := getSubDomainFromFqdn(fqdn, zone.Domain)
 
 	records, err := d.getZoneRecords(recordName, zone)
 	if err != nil {
@@ -153,9 +153,9 @@ func (d *DNSProvider) Timeout() (timeout, interval time.Duration) {
 }
 
 
-func getSubDomainFromFqdn(fqdn string) string {
+func getSubDomainFromFqdn(fqdn string, zoneDomainName string) string {
 	ufqdn := dns01.UnFqdn(fqdn)
-	strDomainRegex := fmt.Sprintf(".%s$", strings.ReplaceAll(zone.Domain, ".", "\\."))
+	strDomainRegex := fmt.Sprintf(".%s$", strings.ReplaceAll(zoneDomainName, ".", "\\."))
 	domainRegex := regexp.MustCompile(strDomainRegex)
 	return domainRegex.ReplaceAllString(ufqdn, "")
 }
